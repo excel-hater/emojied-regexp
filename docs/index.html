@@ -1,9 +1,35 @@
 <html>
-  <head>
-    <title>Emojied RegExp</title>
-  </head>
-  <body>
-    自分、やれます。やらせてください。
-    win+.で絵文字出せるってよ
-  </body>
+<head>
+  <title>Emojied RegExp</title>
+  <script type="text/javascript" src="../emoji-map.js"></script>
+  <script type="text/javascript" src="../transform.js"></script>
+  <script>
+    window.addEventListener("load", ()=>{
+      let regArea = document.getElementById("regexp-area");
+      let emoArea = document.getElementById("emoexp-area");
+      
+      document.getElementById("emojify-button").addEventListener("click", ()=>{
+        emoArea.value = emojify(regArea.value);
+      })
+
+      document.getElementById("demojify-button").addEventListener("click", ()=>{
+        regArea.value = demojify(emoArea.value);
+      })
+
+      document.getElementById("emojis").innerText = JSON.stringify(metacharEmojiDict,null,'\t')
+    })
+  </script>
+</head>
+<body>
+  自分、やれます。やらせてください。
+  win+.で絵文字出せるってよ
+  <textarea id="regexp-area" placeholder="正規表現"></textarea>
+  <div>
+    <button id="emojify-button">↓正規表現をemojify</button>
+    <button id="demojify-button">↑正規絵文字表現をdemojify</button>
+  </div>
+  <textarea id="emoexp-area" placeholder="正規絵文字表現"></textarea>
+  <br>
+  凡例:<div id="emojis"></div>
+</body>
 </html>
