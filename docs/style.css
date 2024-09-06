@@ -1,0 +1,7 @@
+textarea {
+  field-sizing: content;
+  min-width: 20rem;
+  max-width: 40rem;
+  min-height: 4em; /* lhもrlhも思った高さにならない */
+  max-height: 8em;
+}

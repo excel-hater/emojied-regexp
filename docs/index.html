@@ -1,6 +1,7 @@
 <html>
 <head>
-  <title>Emojied RegExp</title>
+  <title>Emojied RegExp - 絵文字で正規表現を表現</title>
+  <link href="style.css" rel="stylesheet" />
   <script type="text/javascript" src="../emoji-map.js"></script>
   <script type="text/javascript" src="../transform.js"></script>
   <script>
@@ -16,13 +17,14 @@
         regArea.value = demojify(emoArea.value);
       })
 
+      // TODO copyボタンの実装、さすがに長いので.jsファイルに切り出す
+
       document.getElementById("emojis").innerText = JSON.stringify(metacharEmojiDict,null,'\t')
     })
   </script>
 </head>
 <body>
-  自分、やれます。やらせてください。
-  win+.で絵文字出せるってよ
+  win + . で絵文字が出せる（デザイナーならcontrol + command + スペース）
   <br>
   <textarea id="regexp-area" placeholder="正規表現"></textarea>
   <div>
@@ -31,6 +33,7 @@
   </div>
   <textarea id="emoexp-area" placeholder="正規絵文字表現"></textarea>
   <br>
-  凡例:<div id="emojis"></div>
+  凡例:<div id="emojis"></div></br>
+  [12]\d{3}-[01]\d-[0-3]\d (.*)\[(.*)\]:.* が </br>🫱12🫲〽d🫸3🫷-🫱01🫲〽d-🫱0-3🫲〽d 🌜☯⚛️🌛〽🫱🌜☯⚛️🌛〽🫲:☯⚛️ になる
 </body>
 </html>
